@@ -1,5 +1,7 @@
 package hello.core;
 
+import hello.core.discount.DiscountPolicy;
+import hello.core.discount.FixDiscountPolicy;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +18,11 @@ public class AutoAppConfig {
     @Bean(name = "memoryMemberRepository")
     MemberRepository memberRepository() {
         return new MemoryMemberRepository();
+    }
+
+    @Bean(name = "fixDiscountPolicy")
+    DiscountPolicy discountPolicy() {
+        return new FixDiscountPolicy();
     }
 
 }
